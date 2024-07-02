@@ -5,15 +5,15 @@ const loginMiddleware = async (req, res, next) => {
     try {
         const sessionId = req.cookies.id
         if (!sessionId) {
-            return res.status(401).json({msg: 'Please Log In1'})
+            return res.status(401).json({msg: 'Please Log In'})
         }
         const session = await Session.findById(sessionId)
         if (!session) {
-            return res.status(401).json({msg: 'Please Log In2'})
+            return res.status(401).json({msg: 'Please Log In'})
         }
         const user = await User.findById(session.userId)
         if (!user) {
-            return res.status(401).json({msg: 'Please Log In3'})
+            return res.status(401).json({msg: 'Please Log In'})
         }
         req.user = user
         next()

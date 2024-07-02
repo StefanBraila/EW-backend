@@ -21,7 +21,7 @@ const roulette = async (req, res) => {
             betAmount += bets[keys[i]]
         }
         if (betAmount > user.balance) {
-            res.status(403).json({
+            return res.status(403).json({
                 msg: 'insuficient balance'
             })
         }
